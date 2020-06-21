@@ -1,0 +1,109 @@
+@font-face {
+  font-family: 'digital-7_monomono';
+  src: url('../fonts/digital-7_mono-webfont.woff2') format('woff2'),
+       url('../fonts/digital-7_mono-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+.countdown {
+  margin: 5px auto;
+  padding: 0.5rem;
+  text-align: center;
+  background-color: #070d22;
+  border-radius: 15px;
+  z-index: 1;
+  border: 2px solid #263259;
+  max-width: 240px;
+}
+
+.countdown ul p {
+  color: #f82249!important;
+  font-size: 1.5rem!important;
+  vertical-align: top;
+  display: inline;
+  line-height: 1.6em;
+}
+
+.countdown ul {
+  padding: 0px!important;
+  margin: 0!important;
+  
+}
+
+#text .countdown ul p span {
+    color: #f82249;
+    font-size: 1.5rem!important;
+    vertical-align: top;
+    display: inline;
+    line-height: 1.6em;
+  }
+
+.countdown li {
+  display: inline-block;
+  font-size: .75em;
+  list-style-type: none;
+  padding: .2em;
+  text-transform: uppercase;
+  color: #a3b2e5;
+  margin: 0!important;
+}
+
+.countdown li span {
+  color: #f82249;
+  display: block;
+  font-size: 2.5rem;
+  line-height: 1em;
+  font-family: "digital-7_monomono", sans-serif;
+  text-align: center;
+  z-index: 3;
+  -webkit-animation: glow 2s ease-in-out infinite alternate;
+  -moz-animation: glow 2s ease-in-out infinite alternate;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 8px #f8224990;
+
+  }
+  to {
+    text-shadow: 0 0 2px #f8224940;
+
+  }
+}
+.countdown li span::before {
+  content: "00";
+  color: #181f37;
+  position: absolute;
+  z-index: -1;
+  text-shadow: none;
+}
+
+
+
+
+.loading:after {
+  content: '.';
+  animation: dots 1.2s steps(5, end) infinite;}
+
+@keyframes dots {
+  0%, 20% {
+    color: rgba(0,0,0,0);
+    text-shadow:
+      .25em 0 0 rgba(0,0,0,0),
+      .5em 0 0 rgba(0,0,0,0);}
+  40% {
+    color: white;
+    text-shadow:
+      .25em 0 0 rgba(0,0,0,0),
+      .5em 0 0 rgba(0,0,0,0);}
+  60% {
+    text-shadow:
+      .25em 0 0 white,
+      .5em 0 0 rgba(0,0,0,0);}
+  80%, 100% {
+    text-shadow:
+      .25em 0 0 white,
+      .5em 0 0 white;}}
