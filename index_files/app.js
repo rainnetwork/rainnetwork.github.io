@@ -1,119 +1,133 @@
-/* Template Name: Adminto - Bootstrap 4 Landing Page Tamplate
-   Author: CoderThemes
-   File Description: Main JS file of the template
+/* -----------------------------------------------
+/* How to use? : Check the GitHub README
+/* ----------------------------------------------- */
+
+/* To load a config file (particles.json) you need to host this demo (MAMP/WAMP/local)... */
+/*
+particlesJS.load('particles-js', 'particles.json', function() {
+  console.log('particles.js loaded - callback');
+});
 */
 
+/* Otherwise just put the config content (json): */
 
-! function($) {
-    "use strict";
-
-    var Adminto = function() {};
-
-    Adminto.prototype.initStickyMenu = function() {
-        $(window).scroll(function() {
-            var scroll = $(window).scrollTop();
-        
-            if (scroll >= 50) {
-                $(".sticky").addClass("nav-sticky");
-            } else {
-                $(".sticky").removeClass("nav-sticky");
-            }
-        });
+particlesJS('particles-js',
+  
+  {
+    "particles": {
+      "number": {
+        "value": 80,
+        "density": {
+          "enable": true,
+          "value_area": 800
+        }
+      },
+      "color": {
+        "value": "#ddd"
+      },
+      "shape": {
+        "type": "circle",
+        "stroke": {
+          "width": 0,
+          "color": "#888888"
+        },
+        "polygon": {
+          "nb_sides": 5
+        },
+        "image": {
+          "src": "img/github.svg",
+          "width": 100,
+          "height": 100
+        }
+      },
+      "opacity": {
+        "value": 0.5,
+        "random": false,
+        "anim": {
+          "enable": false,
+          "speed": 1,
+          "opacity_min": 0.1,
+          "sync": false
+        }
+      },
+      "size": {
+        "value": 5,
+        "random": true,
+        "anim": {
+          "enable": false,
+          "speed": 40,
+          "size_min": 0.1,
+          "sync": false
+        }
+      },
+      "line_linked": {
+        "enable": true,
+        "distance": 150,
+        "color": "#777",
+        "opacity": 0.4,
+        "width": 1
+      },
+      "move": {
+        "enable": true,
+        "speed": 6,
+        "direction": "none",
+        "random": false,
+        "straight": false,
+        "out_mode": "out",
+        "attract": {
+          "enable": false,
+          "rotateX": 600,
+          "rotateY": 1200
+        }
+      }
     },
-
-    Adminto.prototype.initSmoothLink = function() {
-        $('.navbar-nav a').on('click', function(event) {
-            var $anchor = $(this);
-            $('html, body').stop().animate({
-                scrollTop: $($anchor.attr('href')).offset().top - 50
-            }, 1500, 'easeInOutExpo');
-            event.preventDefault();
-        });
+    "interactivity": {
+      "detect_on": "canvas",
+      "events": {
+        "onhover": {
+          "enable": true,
+          "mode": "repulse"
+        },
+        "onclick": {
+          "enable": true,
+          "mode": "push"
+        },
+        "resize": true
+      },
+      "modes": {
+        "grab": {
+          "distance": 400,
+          "line_linked": {
+            "opacity": 1
+          }
+        },
+        "bubble": {
+          "distance": 400,
+          "size": 40,
+          "duration": 2,
+          "opacity": 8,
+          "speed": 3
+        },
+        "repulse": {
+          "distance": 200
+        },
+        "push": {
+          "particles_nb": 4
+        },
+        "remove": {
+          "particles_nb": 2
+        }
+      }
     },
+    "retina_detect": true,
+    "config_demo": {
+      "hide_card": false,
+      "background_color": "#b61924",
+      "background_image": "",
+      "background_position": "50% 50%",
+      "background_repeat": "no-repeat",
+      "background_size": "cover"
+    }
+  }
 
-    Adminto.prototype.initScrollspy = function() {
-        $("#navbarCollapse").scrollspy({
-            offset: 50
-        });
-    },
-
-    Adminto.prototype.initMfpvideo = function() {
-        $('.video-play-icon').magnificPopup({
-            disableOn: 700,
-            type: 'iframe',
-            mainClass: 'mfp-fade',
-            removalDelay: 160,
-            preloader: false,
-            fixedContentPos: false
-        });
-    },
-
-    Adminto.prototype.initContact = function() {
-        
-        $('#contact-form').submit(function() {
-
-            var action = $(this).attr('action');
-        
-            $("#message").slideUp(750, function() {
-                $('#message').hide();
-        
-                $('#submit')
-                    .before('')
-                    .attr('disabled', 'disabled');
-        
-                $.post(action, {
-                        name: $('#name').val(),
-                        email: $('#email').val(),
-                        comments: $('#comments').val(),
-                    },
-                    function(data) {
-                        document.getElementById('message').innerHTML = data;
-                        $('#message').slideDown('slow');
-                        $('#cform img.contact-loader').fadeOut('slow', function() {
-                            $(this).remove()
-                        });
-                        $('#submit').removeAttr('disabled');
-                        if (data.match('success') != null) $('#cform').slideUp('slow');
-                    }
-                );
-        
-            });
-        
-            return false;
-        
-        });
-
-    },
-
-    Adminto.prototype.initBacktoTop = function() {
-        $(window).scroll(function(){
-            if ($(this).scrollTop() > 100) {
-                $('.back-to-top').fadeIn();
-            } else {
-                $('.back-to-top').fadeOut();
-            }
-        }); 
-        $('.back-to-top').click(function(){
-            $("html, body").animate({ scrollTop: 0 }, 1000);
-            return false;
-        });
-    },
-
-
-    Adminto.prototype.init = function() {
-        this.initStickyMenu();
-        this.initSmoothLink();
-        this.initScrollspy();
-        this.initMfpvideo();
-        this.initContact();
-        this.initBacktoTop();
-    },
-    //init
-    $.Adminto = new Adminto, $.Adminto.Constructor = Adminto
-}(window.jQuery),
-
-//initializing
-function($) {
-    "use strict";
-    $.Adminto.init();
-}(window.jQuery);
+);
