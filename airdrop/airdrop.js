@@ -24,7 +24,7 @@ var abi = [
 var address = '0x61cDb66e56FAD942a7b5cE3F419FfE9375E31075';
 var RAIN = web3.eth.contract(abi).at(address);
 
-var faucetContract = '0xFFf24f023794611Fea2B4949bc6B10F4BD50423D';
+var faucetContract = '0x6aE67eaF12E4118CD6896Bb19f524476Da696825';
 
 function init() {
 	if (window.ethereum !== undefined) {
